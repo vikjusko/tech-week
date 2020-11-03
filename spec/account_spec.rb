@@ -53,5 +53,11 @@ describe Account do
       expect(account.balance).to eq(1150.00)
       expect(account.activity).to eq ['03/11/2020 || || 250.00 || 1150.00', '03/11/2020 || 100.00 || || 900.00', '03/11/2020 || 500.00 || || 1000.00', '03/11/2020 || || 1500.00 || 1500.00']
     end
-  end
+	end
+	
+	context "raising error for edge cases" do
+		it "raises an error if an input is a negative number" do 
+			expect{ account.withdraw(-20.00) }.to raise_error("Invalid input")
+		end 
+	end 
 end

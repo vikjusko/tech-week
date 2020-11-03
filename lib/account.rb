@@ -9,7 +9,8 @@ class Account
   end
 
   def withdraw(credit, date = Time.new.strftime('%d/%m/%Y'))
-    @balance -= credit
+		raise "Invalid input" if credit < 0
+		@balance -= credit
     @activity.unshift("#{date} || #{'%.2f' % credit} || || #{format('%.2f', @balance)}")
   end
 
