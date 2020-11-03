@@ -17,6 +17,11 @@ describe Account do
   		account.withdraw(25.00)
   		expect(account.balance).to eq(-25.00)
 		end
+
+		it "stores the history of the credit into the activity log" do
+			account.withdraw(90.00)
+			expect(account.activity).to eq ["03/11/2020 || 90.00 || || -90.00"]
+		end		
 	end 
 
 end
