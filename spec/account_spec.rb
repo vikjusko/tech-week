@@ -8,6 +8,15 @@ describe Account do
 		
 		it "has an initial activity log that is an empty array" do 
 			expect(account.activity).to be_an Array
+			expect(account.activity).to be_empty
 		end 
-  end
+	end
+	
+	context "money withdrawl" do
+		it "can take money out of the account and reflect it in the current balance amount" do
+  		account.withdraw(25.00)
+  		expect(account.balance).to eq(-25.00)
+		end
+	end 
+
 end

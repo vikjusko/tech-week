@@ -5,4 +5,8 @@ class Account
 		@balance = 0
 		@activity = []
 	end 
+
+	def withdraw(credit)
+		@balance -= credit
+	end 
 end
