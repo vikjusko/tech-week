@@ -21,7 +21,13 @@ describe Account do
 		it "stores the history of the credit into the activity log" do
 			account.withdraw(90.00)
 			expect(account.activity).to eq ["03/11/2020 || 90.00 || || -90.00"]
-		end		
+		end
+
+    it 'stores the hostry of the credit into the activity log several times in correct order' do
+      account.withdraw(120.00)
+      account.withdraw(90.00)
+      expect(account.activity).to eq ['03/11/2020 || 90.00 || || -210.00', '03/11/2020 || 120.00 || || -120.00']
+    end
 	end 
 
 end
