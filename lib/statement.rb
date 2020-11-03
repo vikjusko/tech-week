@@ -1,17 +1,21 @@
-require './lib/account.rb'
+# frozen_string_literal: true
 
-class Statement 
-	def initialize(account = Account.new)
-		@account = account
-		@transactions = []
-	end 
+require './lib/account'
 
-	def print
-		"date || credit || debit || balance\n03/11/2020 || 20.00 || || -20.00"
-	end 
+class Statement
 
-	def transaction_list(log = @account.activity)
-  	@transactions = log
-	end
+	attr_reader :transactions, :account 
+	
+  def initialize(account = Account.new)
+    @account = account
+    @transactions = []
+  end
 
-end 
+  def print
+    "date || credit || debit || balance\n#{@transactions.join("\n")}"
+  end
+
+  def transaction_list(log = @account.activity)
+    @transactions = log
+  end
+end
