@@ -59,5 +59,9 @@ describe Account do
 		it "raises an error if an input is a negative number" do 
 			expect{ account.withdraw(-20.00) }.to raise_error("Invalid input")
 		end 
+
+		it "raises an error if an input is a negative number" do
+  		expect { account.deposit(-20.00) }.to raise_error("Invalid input")
+		end
 	end 
 end
