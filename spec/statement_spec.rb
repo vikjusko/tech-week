@@ -5,9 +5,9 @@ describe Statement do
   let(:account) { Account.new }
   subject(:statement) { described_class.new }
 
-	it 'can print out the account transactions in a needed format' do
-		account.withdraw(20.00)
-		statement.transaction_list(account.activity)
+  it 'can print out the account transactions in a needed format' do
+    account.withdraw(20.00)
+    statement.transaction_list(account.activity)
     expect(statement.print).to eq("date || credit || debit || balance\n03/11/2020 || 20.00 || || -20.00")
   end
 

@@ -3,9 +3,8 @@
 require './lib/account'
 
 class Statement
+  attr_reader :transactions, :account
 
-	attr_reader :transactions, :account 
-	
   def initialize(account = Account.new)
     @account = account
     @transactions = []
