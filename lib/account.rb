@@ -13,7 +13,8 @@ class Account
     @activity.unshift("#{date} || #{'%.2f' % credit} || || #{format('%.2f', @balance)}")
 	end
 	
-	def deposit(debit)
+	def deposit(debit, date = Time.new.strftime("%d/%m/%Y"))
 		@balance += debit
+		@activity.unshift("#{date} || || #{"%.2f" % debit} || #{format("%.2f", @balance)}")
 	end 
 end

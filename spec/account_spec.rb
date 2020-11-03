@@ -36,6 +36,11 @@ describe Account do
     it 'can debit money into the account and the amount will be reflected in the balance' do
       account.deposit(1500.00)
       expect(account.balance).to eq(1500.00)
+		end
+
+    it 'can add the history of debiting money into the array of activity' do
+      account.deposit(1500.00)
+      expect(account.activity).to eq ['03/11/2020 || || 1500.00 || 1500.00']
     end
   end
 end
